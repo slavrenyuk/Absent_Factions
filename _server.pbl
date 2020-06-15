@@ -1,0 +1,7 @@
+author="neki, sergey"
+description="At the beginning of a multiplayer game, this add-on prints one absent faction in the game. Go to Custom Options tab to configure it to show more absent factions."
+email="svlavrenyuk@gmail.com"
+icon="data/core/images/units/unknown-unit.png"
+title="Absent Factions"
+type="mod_mp"
+version="1.0.0"
