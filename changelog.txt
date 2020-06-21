@@ -1,0 +1,5 @@
+Version 1.0.1
+- Fixed incorrect inclusion of the LUA file in lower case, which did not work in case-sensitive file systems
+
+Version 1.0.0
+- Initial version
