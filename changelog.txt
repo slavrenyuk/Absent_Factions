@@ -1,3 +1,6 @@
+Version 1.0.2
+- Fixed several bugs reported by Shiki (if there is more sides than factions, if recruit list is empty)
+
 Version 1.0.1
 - Fixed incorrect inclusion of the LUA file in lower case, which did not work in case-sensitive file systems
 

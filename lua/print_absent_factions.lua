@@ -40,8 +40,10 @@ result.print = function(args)
 
             -- store the recruit list - faction id mapping for the map picker,
             -- since it overrides faction id to "Custom"
-            local recruit_list = normalize_recruit_list(faction.recruit)
-            recruit_list_to_faction_id[recruit_list] = faction_id
+            if faction.recruit ~= nil and faction.recruit ~= "" then
+                local recruit_list = normalize_recruit_list(faction.recruit)
+                recruit_list_to_faction_id[recruit_list] = faction_id
+            end
         end
     end
 
@@ -53,7 +55,11 @@ result.print = function(args)
             -- workaround for the map picker, since it overrides faction id to "Custom"
             if faction_id == "Custom" then
                 local recruit_list = normalize_recruit_table(side.recruit)
-                faction_id = recruit_list_to_faction_id[recruit_list]
+                local faction_id_by_recruits = recruit_list_to_faction_id[recruit_list]
+                -- may be nil, e.g. in ANL
+                if faction_id_by_recruits ~= nil then
+                    faction_id = faction_id_by_recruits
+                end
             end
             absent_factions[faction_id] = false
         end
@@ -88,7 +94,9 @@ result.print = function(args)
     -- create and print the message
     local title = "Absent Factions"
     local message
-    if n == 1 then
+    if n == 0 then
+        message = "All possible factions are present in this game"
+    elseif n == 1 then
         message = "There is no " .. absent_factions_to_show[1] .. " in this game"
     else
         message = "There are no " .. table.concat(absent_factions_to_show, ", ", 1, #absent_factions_to_show - 1)
