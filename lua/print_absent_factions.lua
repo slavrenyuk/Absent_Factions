@@ -1,4 +1,3 @@
-local helper = wesnoth.require("lua/helper.lua")
 local result = {}
 
 -- split input string with provided separator
@@ -28,7 +27,7 @@ result.print = function(args)
     local faction_id_to_name = {}
 
     -- first of all fill this table with all possible factions
-    for faction in helper.child_range(wesnoth.game_config.era, "multiplayer_side") do
+    for faction in wml.child_range(wesnoth.game_config.era, "multiplayer_side") do
         -- exclude random faction definition
         if not faction.random_faction then
             local faction_id = tostring(faction.id)

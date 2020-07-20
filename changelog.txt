@@ -1,3 +1,6 @@
+Version 1.0.3
+- Replaced deprecated helper.child_range to wml.child_range
+
 Version 1.0.2
 - Fixed several bugs reported by Shiki (if there is more sides than factions, if recruit list is empty)
 
